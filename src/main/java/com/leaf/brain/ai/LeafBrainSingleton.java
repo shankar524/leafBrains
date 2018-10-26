@@ -25,7 +25,7 @@ public class LeafBrainSingleton {
 	 
 	 private LeafBrainSingleton()
 	 {
-		 this.graphDef = readAllBytesOrExit(Paths.get(modelDir, "trained_graph.pb"));
+		 this.graphDef = readAllBytesOrExit(Paths.get(modelDir, "small_trained_graph.pb"));
 		 this.labels=readAllLinesOrExit(Paths.get(modelDir, "trained_labels.txt"));
 	 }
 	 
@@ -69,8 +69,8 @@ public class LeafBrainSingleton {
 		      // - The model was trained with images scaled to 224x224 pixels.
 		      // - The colors, represented as R, G, B in 1-byte each were converted to
 		      //   float using (value - Mean)/Scale.
-		      final int H = 299;
-		      final int W = 299;
+		      final int H = 224;
+		      final int W = 224;
 		      final float mean = 0f;
 		      final float scale = 255f;
 
