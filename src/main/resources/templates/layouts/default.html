@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="img/fav.png">
+	<!-- Meta Description -->
+	<meta name="description" content="">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+<title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">AI</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,300,500" rel="stylesheet">
+	<th:block th:replace="fragments/style"></th:block>	
+	<th:block layout:fragment="styles"></th:block>	
+	</head>
+<body>
+	<div class="oz-body-wrap">
+		<!-- Start Header Area -->
+		<div class="default-header" th:replace="fragments/header.html :: header"></div>
+		
+		<div layout:fragment="content">									
+		</div>
+	
+		<th:block th:replace="fragments/footer"></th:block>	
+		
+	</div>
+	<th:block th:replace="fragments/script"></th:block>
+	
+	<th:block layout:fragment="scripts"></th:block>
+	</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/default}">
+<head>
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<th:block layout:fragment="styles">
+	<link rel="stylesheet" href="../static/css/dropify.min.css" th:href="@{/css/dropify.min.css}" />
+	</th:block>
+	
+<title>Home</title>	
+	</head>
+	<body>
+<div layout:fragment="content">	
+	
+		<section class="banner-area relative">
+			<div class="container">
+				<div class="row fullscreen align-items-center justify-content-center">
+					<div class="banner-left col-lg-6">
+						<img class="d-flex mx-auto img-fluid" src="img/peepal.jpg" alt="">
+					</div>
+					<div class="col-lg-6">
+						<div class="story-content">
+							<h1><span class="sp-1">Leaf Detection</span> <br> Using <br> <span class="sp-2">Artificial Intelligence</span></h1>
+							<button href="#" class="genric-btn primary circle arrow" data-toggle="modal" data-target="#orangeModalSubscription">Get Started<span class="lnr lnr-arrow-right" onclick="clearInputs();"></span></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+<div class="modal fade" id="orangeModalSubscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-warning" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header text-center">
+                <h4 class="modal-title white-text w-100 font-weight-bold py-2">Please select the Image</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
+
+            <!--Body-->
+            <div class="modal-body">                	
+	             <form action="/check" method="post" id="plant-form" enctype="multipart/form-data" data-toggle="validator" role="form">
+	           <fieldset>
+	            <div class="form-group">
+	             <div class="picture">	            		
+	            <input type="file" id="input-file-events" name="file" data-error="Please upload the leaf image." class="dropify-event" data-max-file-size="5M" accept="image/x-png,image/gif,image/jpeg" required />
+	       
+	       </div>
+	      		<h3 class="help-block with-errors"></h3>
+	        </div>
+	        
+	        
+	        <!-- show leaf and non leaf percentage -->
+	        	<div id ="progressShow">											
+				</div>					
+			
+
+			<div id="postResultDiv" style="margin:10px 0px 10px 0px;">
+			</div>
+					</fieldset>
+				</form>	         
+            </div>           
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+
+		<section id="about" class="about-area pt-100 pb-100">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-6">
+						<div class="story-content">
+							<h2><span class="sp-1">Brief Information</span> <br>
+							About <span class="sp-2">Leaf Detective</span></h2>
+							<p class="mt-30">
+							All about AI.
+							</p>
+							
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<img class="img-fluid d-flex mx-auto" src="img/leaf.jpg" alt="">
+					</div>
+				</div>
+			</div>
+		</section>
+		
+	
+	</div>		
+	<th:block layout:fragment="scripts">
+	<script src="../static/js/ai_predict.js" th:src="@{/js/ai_predict.js/}"></script>
+	 <script src="../static/js/dropify.min.js" th:src="@{/js/dropify.min.js/}"></script>
+	 <script src="../static/js/jquery.easypiechart.min.js" th:src="@{/js/jquery.easypiechart.min.js/}"></script>
+	        <script type="text/javascript">
+            $(document).ready(function(){
+                // Basic
+                
+                $('.dropify').dropify();          
+               
+
+                // Used events
+                var drEvent = $('.dropify-event').dropify();
+
+                drEvent.on('dropify.beforeClear', function(event, element){
+                    return confirm("Do you really want to delete \"" + element.filename + "\" ?");
+                });
+
+                drEvent.on('dropify.afterClear', function(event, element){
+                    alert('File deleted');
+                });
+            });
+            
+        </script>
+         <script type="text/javascript">
+			jQuery(function($) {
+				$('.easy-pie-chart.percentage').each(function(){
+					var $box = $(this).closest('.infobox');
+					var barColor = $(this).data('color') || (!$box.hasClass('infobox-dark') ? $box.css('color') : 'rgba(255,255,255,0.95)');
+					var trackColor = barColor == 'rgba(255,255,255,0.95)' ? 'rgba(255,255,255,0.25)' : '#CA5952';
+					var size = parseInt($(this).data('size')) || 50;
+					$(this).easyPieChart({
+						barColor: barColor,
+						trackColor: trackColor,
+						scaleColor: false,
+						lineCap: 'butt',
+						lineWidth: parseInt(size/10),
+						animate: ace.vars['old_ie'] ? false : 1000,
+						size: size
+					});
+				})
+			})
+				
+				</script>
+	</th:block>
+	</body>
+</html>
