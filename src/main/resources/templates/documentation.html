@@ -1,180 +1,158 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
-<head>
-	<!-- Mobile Specific Meta -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" />	
-	<link rel="stylesheet" type="text/css" href="syntax-highlighter/styles/shCore.css" media="all">
-    <link rel="stylesheet" type="text/css" href="syntax-highlighter/styles/shThemeDefault.css" media="all">
-	<style>
-  body {
-      position: relative;
-  }
-  ul.nav-pills {
-      top: 20px;
-      position: fixed;
-  }
-  div.col-8 div {
-      height: 500px;
-  }
-  a, a:hover, a:focus{
- 	color: #777777;
-	text-decoration: none;
-	outline: 0;
-}
-
-  </style>
-	
-<title>Home</title>	
-	</head>
-
-	<body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
-<div class="container-fluid">
-  <div class="row">
-    <nav class="col-sm-3 col-4" id="myScrollspy">
-      <ul class="nav nav-pills flex-column">
-       <li class="nav-item">
-          <div class="logo">
-							<h3><a href="/"><img src="img/ic_logo.png" width="42px" height ="42px" alt="LeafID">Leaf Brain</a></h3>
-						</div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#section1">Title</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#section2">URL</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#section3">Method</a>
-        </li>
-       <li class="nav-item">
-          <a class="nav-link" href="#section4">URL Params</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#section5">Data Params</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#section6">Success Response</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#section7">Error Response</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#section8">Sample Call</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#section9">Notes</a>
-        </li>
-      </ul>
-    </nav>
-    
-    <div class="col-sm-9 col-8">
-      <div id="section1">    
-        <h1>Title</h1>
-        <h2>Leaf Brain</h2>
-        <p>
-        Artificial intelligence is an independent component of the system. AI is the gateway to enter the system. The main task of AI is to detect the input image and provide the prediction on the percentage. The green section in the progress bar represents the percentage that an input image is leaf and red section represents the percentage the input image is non-leaf.
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/default}">
+<head>	
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<th:block layout:fragment="styles">
+		<link rel="stylesheet" type="text/css" href="syntax-highlighter/styles/shCore.css" media="all">
+	    <link rel="stylesheet" type="text/css" href="syntax-highlighter/styles/shThemeMidnight.css" media="all">
+	</th:block>		
+<title>Documentation</title>	
+</head>
+  <body>
+	<div layout:fragment="content">	
+		<section id="about" class="about-area pt-100 pb-100">
+			<div class="container">
+			<div class="row align-items-center">
+			<div class="col-lg-12">
+			<div class="story-content">
+							<h2 align="center"><span class="sp-1">Leaf Brain</span>  <span class="sp-2">API Documentation</span></h2>
+							<p class="text-justify mt-30">
+							This is a lightweight web service, (REST interface), which provides an easy way to access the Leaf Brain API. 
+An API (Application programming interface) is a protocol intended to be used as an interface by software components to communicate with each other. 
+Our API supports many methods, so there should not be a problem coding some nice applications. <br>
+The API endpoints return the following data structure as below:
+							</p>
+							<div class="table-responsive">
+							    <table class="table table-bordered table-striped">	
+							    <thead>
+							      <tr>
+							        <th style="width: 25%"><h4><span class="sp-2">Caption</span></h4></th>
+							        <th><h4><span class="sp-2">Descriptions</span></h4></th>							        
+							      </tr>
+							    </thead>						      
+							      <tbody>
+							        <tr>
+							          <td>Title</td>
+							          <td>
+							          	<h3 style="text-decoration: underline"><span class="sp-1">Leaf Brain</span></h3><br>
+							         	 <p class="text-justify">Artificial intelligence is an independent component of the system. AI is the gateway to enter the system. The main task of AI is to detect the input image and provide the prediction on the percentage. The green section in the progress bar represents the percentage that an input image is leaf and red section represents the percentage the input image is non-leaf.
 For doing leaf detection we created an AI model using the TensorFlow library. For retraining our model we used  MobileNet V2 architecture. This architecture created a small sized model which was easy to deploy on mobile devices and other resource-constrained environments. The smaller sized model also performed tasks with faster speed.
-        </p>
-      </div>
-      
-      <div id="section2"> 
-        <h1>URL</h1>       
-        <pre class="brush: html"> 
-        	https://leaf-brains.herokuapp.com/api/ai?file 
-        </pre>
-      </div>  
-            
-      <div id="section3">         
-        <h1>Method</h1>
-        <pre class="brush: html"> POST</pre>
-      </div>
-      
-      <div id="section4">    
-       <h1>URL Params</h1>             
-        <pre class="brush: html"> 
-        	Type = "multipart/form-data"
-        </pre>
-        
-      </div>
-      
-      
-      
-        <div id="section5">
-        <h1>Data Params</h1>        
-        <pre class="brush: javascript">
-         	{ 
-        		file = multipart
-        	} 
-        									
-        </pre>       
-      </div> 
-             
-      <div id="section6">         
-        <h1>Success Response</h1>       
-        <pre class="brush: javascript">
-        	Code: 200 
-        	Content: {
-        	leaf: 99.79786
-			message: "success"
-			non leaf: 0.20213482
-			status: true
-			}
-			</pre>			
-      </div>
-      
-      <div id="section7">    
-        <h1>Error Response</h1>
-        <pre class="brush: javascript">
-	        ERROR :  {
-	        readyState: 0,
-	        getResponseHeader: f, 
-	        getAllResponseHeaders: f, 
-	        setRequestHeader: f, 
-	        overrideMimeType: 
-	        f, ..}
-        </pre>
-      </div>
-      
-      <div id="section8"> 
-        <h1>Sample Call</h1>
-        <pre class="brush: javascript">
-	        $.ajax({
-	        type: "POST",        
-	        enctype: 'multipart/form-data',
-	        url: 'https://leaf-brains.herokuapp.com/api/ai',
-	        crossDomain: true,
-	        data: data,        
-	        processData: false, 
-	        contentType: false,
-	        cache: false,
-	        timeout: 600000,
-	        success : function(result) {
-			        	console.log(result);      	
-						
-					}else{
-						$("#postResultDiv").html("<strong>Error</strong>");
-					}					
-				},
-		        error: function (e) {		
-		            $("#result").text(e.responseText);
-		            console.log("ERROR : ", e);          
-		        }
-   			 });
-    	</pre>
-    
-      </div>        
-      <div id="section9">         
-        <h1>Notes</h1>
-        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
-      </div>
-      
-    </div>
-  </div>
+        								 </p>
+        							  </td>							   
+							        </tr>
+							         <tr>
+							          <td>URL</td>
+							          <td>
+							          	<pre class="brush: html"> 
+							        		https://leaf-brains.herokuapp.com/api/ai?file 
+							        	</pre>
+							          </td>							   
+							        </tr>
+							        <tr>
+							          <td>Method</td>
+							          <td>
+							          	<pre class="brush: html"> 
+							          		POST
+							          	</pre>
+							          </td>							   
+							        </tr>
+							        <tr>
+							          <td>URL Params</td>
+							          <td>
+							          	<pre class="brush: php"> 
+        									Type = "multipart/form-data"
+        								</pre>
+        							  </td>							   
+							        </tr>
+							        <tr>
+							          <td>Data Params</td>
+							          <td>
+							          	<pre class="brush: javascript">
+								         	{ 
+								        		file = multipart
+								        	}         									
+        								</pre>
+        							  </td>							   
+							        </tr>
+							        <tr>
+							          <td>Success Response</td>
+							          <td>
+							          	<pre class="brush: javascript">
+								        	Code: 200 
+								        	Content: 
+								        			 {
+											        	  leaf: 99.79786
+														  message: "success"
+														  non leaf: 0.20213482
+														  status: true
+													  }
+										</pre>	
+									  </td>							   
+							        </tr>
+							        <tr>
+							          <td>Error Response</td>
+							          <td>
+							          	<pre class="brush: javascript">
+									        ERROR :  
+									        		  {
+													       readyState: 0,
+													       getResponseHeader: f, 
+													       getAllResponseHeaders: f, 
+													       setRequestHeader: f, 
+													       overrideMimeType: 
+													       f, ..}
+								       </pre>
+								      </td>							   
+							        </tr>
+							        <tr>
+							          <td>Sample Call</td>
+							          <td>
+							          	<pre class="brush: javascript">
+									        $.ajax({
+									        type: "POST",        
+									        enctype: 'multipart/form-data',
+									        url: 'https://leaf-brains.herokuapp.com/api/ai',
+									        crossDomain: true,
+									        data: data,        
+									        processData: false, 
+									        contentType: false,
+									        cache: false,
+									        timeout: 600000,
+									        success : function(result) {
+											        	console.log(result);      	
+														
+													}else{
+														$("#postResultDiv").html("<strong>Error</strong>");
+													}					
+												},
+										        error: function (e) {		
+										            $("#result").text(e.responseText);
+										            console.log("ERROR : ", e);          
+										        }
+								   			 });
+								    	</pre>
+								      </td>							   
+							        </tr>
+							        <tr>
+							          <td>Notes</td>
+							          <td>
+							          	<p>Please feel free to contact us if you need any further information. <br>
+							          	 <a href="http://plantrecognition.herokuapp.com/">http://plantrecognition.herokuapp.com</a>
+							          	</p>
+							          	
+							          </td>							   
+							        </tr>							        
+							      </tbody>
+							    </table>
+							  </div>
+						</div>
+					</div>			  
+				</div>
+			</div>	
+	</section>
 </div>
-	<script src="../static/js/vendor/jquery-2.2.4.min.js" th:src="@{/js/vendor/jquery-2.2.4.min.js/}"></script>
-	<script src="../static/js/popper.min.js" th:src="@{/js/popper.min.js/}"></script>	
-	<script src="../static/js/vendor/bootstrap.min.js" th:src="@{/js/vendor/bootstrap.min.js/}"></script>
+
+<th:block layout:fragment="scripts">
 	<script src="../static/syntax-highlighter/scripts/shCore.js" th:src="@{/syntax-highlighter/scripts/shCore.js/}"></script>
         <script src="../static/syntax-highlighter/scripts/shBrushXml.js" th:src="@{/syntax-highlighter/scripts/shBrushXml.js/}" ></script>
         <script src="../static/syntax-highlighter/scripts/shBrushCss.js" th:src="@{/syntax-highlighter/scripts/shBrushCss.js/}" ></script>
@@ -183,6 +161,6 @@ For doing leaf detection we created an AI model using the TensorFlow library. Fo
         <script type="text/javascript">
             SyntaxHighlighter.all()
         </script>
-	 
+</th:block>	 
 	</body>
 </html>
