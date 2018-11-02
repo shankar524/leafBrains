@@ -14,19 +14,15 @@
       top: 20px;
       position: fixed;
   }
-  div.col-9 div {
+  div.col-8 div {
       height: 500px;
   }
   a, a:hover, a:focus{
+ 	color: #777777;
 	text-decoration: none;
 	outline: 0;
 }
-a {
-    color: #777777;
-    text-decoration: none;
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
-}
+
   </style>
 	
 <title>Home</title>	
@@ -35,7 +31,7 @@ a {
 	<body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
 <div class="container-fluid">
   <div class="row">
-    <nav class="col-sm-2 col-3" id="myScrollspy">
+    <nav class="col-sm-3 col-4" id="myScrollspy">
       <ul class="nav nav-pills flex-column">
        <li class="nav-item">
           <div class="logo">
@@ -72,10 +68,14 @@ a {
       </ul>
     </nav>
     
-    <div class="col-sm-10 col-9">
+    <div class="col-sm-9 col-8">
       <div id="section1">    
         <h1>Title</h1>
-        <p>Leaf Brain</p>
+        <h2>Leaf Brain</h2>
+        <p>
+        Artificial intelligence is an independent component of the system. AI is the gateway to enter the system. The main task of AI is to detect the input image and provide the prediction on the percentage. The green section in the progress bar represents the percentage that an input image is leaf and red section represents the percentage the input image is non-leaf.
+For doing leaf detection we created an AI model using the TensorFlow library. For retraining our model we used  MobileNet V2 architecture. This architecture created a small sized model which was easy to deploy on mobile devices and other resource-constrained environments. The smaller sized model also performed tasks with faster speed.
+        </p>
       </div>
       
       <div id="section2"> 
@@ -91,11 +91,11 @@ a {
       </div>
       
       <div id="section4">    
-        <h1>URL Params</h1>
-        <h3>Required</h3>    
-	        <pre class="brush: html">
-	 				Type = "multipart/form-data" 
-	 		</pre>
+       <h1>URL Params</h1>             
+        <pre class="brush: html"> 
+        	Type = "multipart/form-data"
+        </pre>
+        
       </div>
       
       
@@ -114,10 +114,12 @@ a {
         <h1>Success Response</h1>       
         <pre class="brush: javascript">
         	Code: 200 
-        	Content: {leaf: 99.79786
+        	Content: {
+        	leaf: 99.79786
 			message: "success"
 			non leaf: 0.20213482
-			status: true}
+			status: true
+			}
 			</pre>			
       </div>
       
@@ -143,7 +145,7 @@ a {
 	        url: 'https://leaf-brains.herokuapp.com/api/ai',
 	        crossDomain: true,
 	        data: data,        
-	        processData: false, //prevent jQuery from automatically transforming the data into a query string
+	        processData: false, 
 	        contentType: false,
 	        cache: false,
 	        timeout: 600000,
